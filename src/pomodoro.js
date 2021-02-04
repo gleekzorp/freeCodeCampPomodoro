@@ -17,6 +17,7 @@ const Pomodoro = () => {
     if (timerActive) {
       interval = setInterval(() => {
         if (timeLeft === 0) {
+          audioRef.current.play();
           if (breakActive) {
             setBreakActive(false);
             setTimeLeft(sessionLength * 60);
