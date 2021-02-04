@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
-// User Story #16: I should not be able to set a session or break length to <= 0.
-// User Story #17: I should not be able to set a session or break length to > 60.
+import React, { useEffect, useRef, useState } from "react";
 
 const Pomodoro = () => {
-  // Lower numbers for testing
-  const [breakLength, setBreakLength] = useState(0.1);
-  const [sessionLength, setSessionLength] = useState(0.1);
-  const [timeLeft, setTimeLeft] = useState(10);
-  // const [breakLength, setBreakLength] = useState(5);
-  // const [sessionLength, setSessionLength] = useState(25);
-  // const [timeLeft, setTimeLeft] = useState(25 * 60);
+  const [breakLength, setBreakLength] = useState(5);
+  const [sessionLength, setSessionLength] = useState(25);
+  const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [timerActive, setTimerActive] = useState(false);
   const [breakActive, setBreakActive] = useState(false);
+  const audioRef = useRef(null);
+  // Lower numbers for testing
+  // const [breakLength, setBreakLength] = useState(0.1);
+  // const [sessionLength, setSessionLength] = useState(0.2);
+  // const [timeLeft, setTimeLeft] = useState(10);
 
   useEffect(() => {
     let interval = null;
@@ -35,13 +34,19 @@ const Pomodoro = () => {
     return () => clearInterval(interval);
   }, [timerActive, timeLeft, breakLength, breakActive, sessionLength]);
 
+  useEffect(() => {
+    if (timeLeft === 0) {
+      audioRef.current.play();
+    }
+  }, [timeLeft]);
+
   const handleStartStop = () => {
     setTimerActive(!timerActive);
   };
 
   const convertTime = () => {
     let minutes = Math.floor(timeLeft / 60);
-    let seconds = Math.floor(timeLeft % 60);
+    let seconds = timeLeft % 60;
     minutes = minutes < 10 ? `0${minutes}` : minutes;
     seconds = seconds < 10 ? `0${seconds}` : seconds;
     return `${minutes}:${seconds}`;
@@ -82,9 +87,15 @@ const Pomodoro = () => {
   const handleReset = () => {
     setTimerActive(false);
     setBreakActive(false);
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
     setBreakLength(5);
     setSessionLength(25);
     setTimeLeft(25 * 60);
+    // Lower Time For Testing
+    // setBreakLength(0.1);
+    // setSessionLength(0.2);
+    // setTimeLeft(10);
   };
 
   return (
@@ -143,7 +154,11 @@ const Pomodoro = () => {
           reset
         </button>
       </div>
-      <audio id="beep" />
+      <audio
+        ref={audioRef}
+        id="beep"
+        src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
+      />
     </div>
   );
 };
