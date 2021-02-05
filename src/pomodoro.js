@@ -100,45 +100,47 @@ const Pomodoro = () => {
   };
 
   return (
-    <div>
+    <div className="pomodoro-container">
       <h1>25 + 5 Clock</h1>
-      <div className="break-length-wrapper" id="break-label">
-        <h2>Break Length</h2>
-        <div className="button-wrapper">
-          <div
-            className="arrow down-arrow"
-            id="break-decrement"
-            onClick={() => handleDecrement("break")}
-          >
-            &#10140;
-          </div>
-          <div id="break-length">{breakLength}</div>
-          <div
-            className="arrow up-arrow"
-            id="break-increment"
-            onClick={() => handleIncrement("break")}
-          >
-            &#10140;
+      <div className="length-wrapper">
+        <div className="break-length-wrapper" id="break-label">
+          <h2>Break Length</h2>
+          <div className="button-wrapper">
+            <div
+              className="arrow down-arrow"
+              id="break-decrement"
+              onClick={() => handleDecrement("break")}
+            >
+              &#10140;
+            </div>
+            <div id="break-length">{breakLength}</div>
+            <div
+              className="arrow up-arrow"
+              id="break-increment"
+              onClick={() => handleIncrement("break")}
+            >
+              &#10140;
+            </div>
           </div>
         </div>
-      </div>
-      <div className="session-length-wrapper" id="session-label">
-        <h2>Session Length</h2>
-        <div className="button-wrapper">
-          <div
-            className="arrow down-arrow"
-            id="session-decrement"
-            onClick={() => handleDecrement("session")}
-          >
-            &#10140;
-          </div>
-          <div id="session-length">{sessionLength}</div>
-          <div
-            className="arrow up-arrow"
-            id="session-increment"
-            onClick={() => handleIncrement("session")}
-          >
-            &#10140;
+        <div className="session-length-wrapper" id="session-label">
+          <h2>Session Length</h2>
+          <div className="button-wrapper">
+            <div
+              className="arrow down-arrow"
+              id="session-decrement"
+              onClick={() => handleDecrement("session")}
+            >
+              &#10140;
+            </div>
+            <div id="session-length">{sessionLength}</div>
+            <div
+              className="arrow up-arrow"
+              id="session-increment"
+              onClick={() => handleIncrement("session")}
+            >
+              &#10140;
+            </div>
           </div>
         </div>
       </div>
