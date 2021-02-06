@@ -4,15 +4,13 @@
   box-sizing: border-box;
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
 html,
 body {
   margin: 0;
+}
+
+body {
+  font-size: 2rem;
 }
 
 .app {
@@ -23,7 +21,6 @@ body {
   height: 100vh;
   background-color: #1e555c;
   color: white;
-  min-height: 600px;
 }
 
 .pomodoro-container {
@@ -46,20 +43,84 @@ body {
 
 .arrow {
   cursor: pointer;
-  font-size: 1.5rem;
-}
-
-.down-arrow {
-  transform: rotate(90deg);
-}
-
-.up-arrow {
-  transform: rotate(270deg);
+  font-size: 2rem;
 }
 
 .timer-wrapper {
+  font-size: 3rem;
   border: 7px solid #13353a;
-  border-radius: 25px;
-  width: 200px;
-  margin: 0 auto;
+  border-radius: 75px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0.9em auto 0.5em auto;
+  padding: 0.5em 0px;
+}
+
+#time-left {
+  font-size: 5rem;
+}
+
+.controls-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#start_stop,
+#reset {
+  cursor: pointer;
+}
+
+#reset {
+  margin-left: 1em;
+}
+
+footer {
+  font-family: Share Tech Mono, monospace;
+  font-size: 1.25rem;
+  text-align: center;
+  margin-top: 1em;
+}
+
+footer a {
+  color: #00264d;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer > .coded-by {
+  margin-top: 1em;
+}
+
+@media only screen and (max-width: 500px) {
+  .length-wrapper {
+    flex-direction: column;
+  }
+
+  .button-wrapper {
+    width: 150px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 378px) {
+  .app {
+    height: 100%;
+  }
+
+  footer {
+    margin-bottom: 1em;
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .app {
+    height: 100%;
+  }
+
+  footer {
+    margin-bottom: 1em;
+  }
 }

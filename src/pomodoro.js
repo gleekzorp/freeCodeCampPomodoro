@@ -1,4 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faPause,
+  faSyncAlt,
+  faArrowUp,
+  faArrowDown
+} from "@fortawesome/free-solid-svg-icons";
 
 const Pomodoro = () => {
   const [breakLength, setBreakLength] = useState(5);
@@ -104,14 +112,14 @@ const Pomodoro = () => {
       <h1>25 + 5 Clock</h1>
       <div className="length-wrapper">
         <div className="break-length-wrapper" id="break-label">
-          <h2>Break Length</h2>
+          <div>Break Length</div>
           <div className="button-wrapper">
             <div
               className="arrow down-arrow"
               id="break-decrement"
               onClick={() => handleDecrement("break")}
             >
-              &#10140;
+              <FontAwesomeIcon icon={faArrowDown} />
             </div>
             <div id="break-length">{breakLength}</div>
             <div
@@ -119,19 +127,19 @@ const Pomodoro = () => {
               id="break-increment"
               onClick={() => handleIncrement("break")}
             >
-              &#10140;
+              <FontAwesomeIcon icon={faArrowUp} />
             </div>
           </div>
         </div>
         <div className="session-length-wrapper" id="session-label">
-          <h2>Session Length</h2>
+          <div>Session Length</div>
           <div className="button-wrapper">
             <div
               className="arrow down-arrow"
               id="session-decrement"
               onClick={() => handleDecrement("session")}
             >
-              &#10140;
+              <FontAwesomeIcon icon={faArrowDown} />
             </div>
             <div id="session-length">{sessionLength}</div>
             <div
@@ -139,23 +147,21 @@ const Pomodoro = () => {
               id="session-increment"
               onClick={() => handleIncrement("session")}
             >
-              &#10140;
+              <FontAwesomeIcon icon={faArrowUp} />
             </div>
           </div>
         </div>
       </div>
       <div className="timer-wrapper" id="timer-label">
-        <h2>{breakActive ? "Break" : "Session"}</h2>
+        <div>{breakActive ? "Break" : "Session"}</div>
         <div id="time-left">{convertTime()}</div>
       </div>
       <div className="controls-wrapper">
-        {/* <button id="start_stop">&#x23EF;</button> */}
-        <button id="start_stop" onClick={handleStartStop}>
-          start/stop
-        </button>
-        <button id="reset" onClick={handleReset}>
-          reset
-        </button>
+        <div id="start_stop" onClick={handleStartStop}>
+          <FontAwesomeIcon icon={faPlay} />
+          <FontAwesomeIcon icon={faPause} />
+        </div>
+        <FontAwesomeIcon icon={faSyncAlt} id="reset" onClick={handleReset} />
       </div>
       <audio
         ref={audioRef}
