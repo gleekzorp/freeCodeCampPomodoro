@@ -9,10 +9,7 @@ https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-proje
 ## TODO:
 
 - Styles
-  - The FCC styles are sort of basic on this one. I might modify it a little.
   - Countdown < 0 change to red
-  - Colors and fonts
-  - Buttons need to be icons
 - Code Organization
   - Possibly break things down into smaller components
 
