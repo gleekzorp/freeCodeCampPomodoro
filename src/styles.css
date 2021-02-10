@@ -74,6 +74,10 @@ body {
   margin-left: 1em;
 }
 
+.warning {
+  color: rgb(165, 13, 13);
+}
+
 footer {
   font-family: Share Tech Mono, monospace;
   font-size: 1.25rem;

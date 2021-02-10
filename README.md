@@ -8,8 +8,6 @@ https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-proje
 
 ## TODO:
 
-- Styles
-  - Countdown < 0 change to red
 - Code Organization
   - Possibly break things down into smaller components
 

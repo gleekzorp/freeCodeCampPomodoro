@@ -152,7 +152,10 @@ const Pomodoro = () => {
           </div>
         </div>
       </div>
-      <div className="timer-wrapper" id="timer-label">
+      <div
+        className={`timer-wrapper ${timeLeft < 60 ? "warning" : ""}`}
+        id="timer-label"
+      >
         <div>{breakActive ? "Break" : "Session"}</div>
         <div id="time-left">{convertTime()}</div>
       </div>
